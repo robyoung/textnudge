@@ -11,7 +11,7 @@ def hello():
     return "Hello world!"
 
 
-@app.route('/receive')
+@app.route('/receive', methods=['POST'])
 def receive():
     r = twiml.Response()
     r.message("You are the bestest!")
