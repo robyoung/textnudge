@@ -16,13 +16,13 @@ def hello():
 
 @app.route('/receive', methods=['POST'])
 def receive():
+    print("{} {} {}".format(request.method, request.data, request.form))
     message = client.messages.create(
         to=get_forward_number(request.form),
         from_=request.form['To'],
         body=request.form['Body'])
     print("{}".format(message))
 
-    print("{} {} {}".format(request.method, request.data, request.form))
     r = twiml.Response()
     r.message("You are the bestest!")
     return str(r)
@@ -35,3 +35,7 @@ def get_forward_number(form):
         return app.config['PERSON_ONE']
     else:
         raise ValueError("Invalid from address {}".format(form['From']))
+
+if __name__ == '__main__':
+    app.debug = True
+    app.run()
