@@ -24,7 +24,6 @@ def receive():
     print("{}".format(message))
 
     r = twiml.Response()
-    r.message("You are the bestest!")
     return str(r)
 
 
