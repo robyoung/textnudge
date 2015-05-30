@@ -19,7 +19,7 @@ def receive():
     message = client.messages.create(
         to=get_forward_number(request.form),
         from_=request.form['To'],
-        body=request.form['Yay'])
+        body=request.form['Body'])
     print("{}".format(message))
 
     print("{} {} {}".format(request.method, request.data, request.form))
