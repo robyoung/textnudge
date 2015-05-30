@@ -1,5 +1,5 @@
 from flask import Flask
-from twilio.test import TwilioRestClient
+from twilio.rest import TwilioRestClient
 from twilio import twiml
 
 app = Flask(__name__)
