@@ -13,7 +13,7 @@ def hello():
 
 @app.route('/receive', methods=['POST'])
 def receive():
-    print(request.data)
+    print("{} {} {}".format(request.method, request.data, request.form))
     r = twiml.Response()
     r.message("You are the bestest!")
     return str(r)
