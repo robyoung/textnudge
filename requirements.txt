@@ -1,5 +1,6 @@
 Flask==0.10.1
 twilio==4.4.0
+gunicorn==19.3.0
 
 httplib2==0.9.1
 itsdangerous==0.24
