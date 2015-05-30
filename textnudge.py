@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from twilio.rest import TwilioRestClient
 from twilio import twiml
 
@@ -13,6 +13,7 @@ def hello():
 
 @app.route('/receive', methods=['POST'])
 def receive():
+    print(request.data)
     r = twiml.Response()
     r.message("You are the bestest!")
     return str(r)
