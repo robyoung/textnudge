@@ -1,1 +1,1 @@
-web: gunicorn textnudge:app --log-file=-
+web: gunicorn textnudge.web:app --log-file=-
