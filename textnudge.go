@@ -98,7 +98,7 @@ func ReceiveHandler(config Config) http.HandlerFunc {
 			return
 		}
 
-		time.AfterFunc(15*time.Second, nudge(config, twilio_number, to_number))
+		time.AfterFunc(5*time.Minute, nudge(config, twilio_number, to_number))
 
 		resp := twiml.NewResponse()
 		resp.Send(w)
