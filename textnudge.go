@@ -15,6 +15,7 @@ import (
 )
 
 type Config struct {
+	PORT               string
 	PERSON_ONE         string
 	PERSON_TWO         string
 	REDISCLOUD_URL     string
@@ -147,6 +148,7 @@ func nudge(config Config, twilio_number string, to_number string) func() {
 
 func main() {
 	config := Config{
+		PORT:               os.Getenv("PORT"),
 		PERSON_ONE:         os.Getenv("PERSON_ONE"),
 		PERSON_TWO:         os.Getenv("PERSON_TWO"),
 		REDISCLOUD_URL:     os.Getenv("REDISCLOUD_URL"),
@@ -169,6 +171,6 @@ func main() {
 	r.HandleFunc("/", HomeHandler)
 	r.HandleFunc("/receive", ReceiveHandler(config))
 
-	log.Println("Listening on :8080")
-	http.ListenAndServe(":8080", r)
+	log.Printf("Listening on :%s", config.PORT)
+	http.ListenAndServe(":"+config.PORT, r)
 }
